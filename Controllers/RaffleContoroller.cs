@@ -41,7 +41,7 @@ namespace rafflesystem.Controllers
         {
             if (user.name==null || user.price==0)
             {
-                return BadRequest("Lütfden doldurun herşeyi");
+                return BadRequest(new { error = "Tüm alanları doldurun" });
             }
             _userCollection.InsertOne(user);
             return Ok(user);
