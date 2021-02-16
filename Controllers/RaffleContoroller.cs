@@ -9,12 +9,12 @@ namespace rafflesystem.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class RaffleContoroller: ControllerBase
+    public class RaffleController: ControllerBase
     {
         private readonly IMongoCollection<User> _userCollection;
         
 
-        public RaffleContoroller()
+        public RaffleController()
         {
              var client = new MongoClient("mongodb+srv://testUser:vZbAgdspmAWXtxxt@cluster0.emi7e.mongodb.net?retryWrites=true&w=majority");
             var database = client.GetDatabase("RaffleDatabase");
