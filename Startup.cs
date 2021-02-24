@@ -26,6 +26,12 @@ namespace rafflesystem
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddStackExchangeRedisCache(options =>
+            {
+                options.Configuration = "127.0.0.1:6379, ConnectRetry = 10000, SyncTimeout = 10000";
+                options.InstanceName = "Raffle";
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +47,7 @@ namespace rafflesystem
             app.UseRouting();
 
             app.UseAuthorization();
-            
+
 
             app.UseEndpoints(endpoints =>
             {
